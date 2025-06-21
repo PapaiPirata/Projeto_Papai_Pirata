@@ -60,14 +60,16 @@ print("=======================")
 
 agora = datetime.now()
 formato_data_hora = agora.strftime("%Y-%m-%d_%H-%M-%S")
+# Definir a pasta de destino ---
+pasta_destino = "E:\Papai Pirata\Texto"
 # Nome base do seu arquivo
 nome_base  = "texto_gemini"
 # Montar o nome completo do arquivo
-nome_arquivo  = f"{nome_base}_{formato_data_hora}.txt"
+nome_arquivo  = os.path.join(pasta_destino, f"{nome_base}_{formato_data_hora}.txt")
 # Salvar o arquivo
 try:
     with open(nome_arquivo, 'w', encoding='utf-8') as arquivo:
-        arquivo.write("Gerar uma Animação 2D em estilo de conto de fadas, em português do brasil, com traços suaves e arredondados, cores vibrantes e saturadas, o pirata deve ser careca com barba grande. Crie com base no texto: " + mensagem)
+        arquivo.write("Gerar uma Animação 2D em estilo de conto de fadas para video de 8 segundos, em português do brasil, com traços suaves e arredondados, cores vibrantes e saturadas, o pirata deve ser careca com barba grande. Crie com base no texto: " + mensagem)
         print(f"O arquivo '{nome_arquivo}' foi salvo com sucesso!")
 except IOError as e:
     print(f"Erro ao salvar o arquivo '{nome_arquivo}': {e}")        
