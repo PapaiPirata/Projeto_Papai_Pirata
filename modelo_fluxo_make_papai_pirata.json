@@ -1,0 +1,38 @@
+{
+  "name": "Automação Papai Pirata - Conteúdo Diário",
+  "flow": [
+    {
+      "module": "Scheduler",
+      "action": "Every day at 08:00",
+      "description": "Inicia o fluxo diariamente às 08:00"
+    },
+    {
+      "module": "OpenAI (ChatGPT)",
+      "action": "Generate Motivational Pirate Dad Message",
+      "prompt": "Crie uma mensagem motivacional com humor para pais no estilo Papai Pirata, com até 100 palavras.",
+      "output": "motivational_message"
+    },
+    {
+      "module": "ElevenLabs TTS",
+      "action": "Convert text to speech",
+      "input": "{{motivational_message}}",
+      "output": "narrated_audio"
+    },
+    {
+      "module": "Image Generation (DALL·E or Leonardo)",
+      "action": "Generate cartoon image of pirate dad and kids",
+      "prompt": "Desenho estilo Ghibli de um pai pirata cansado com dois filhos pequenos em um cenário de aventura doméstica.",
+      "output": "image_url"
+    },
+    {
+      "module": "Storage",
+      "action": "Save audio and image",
+      "details": "Armazena os arquivos gerados em uma pasta do Google Drive ou Dropbox"
+    },
+    {
+      "module": "Notification or Manual Review",
+      "action": "Enviar link ou notificação para revisar conteúdo antes da postagem"
+    }
+  ],
+  "note": "Este é um modelo descritivo. O Make.com permite importar fluxos via blueprint.json com módulos reais, que posso gerar a seguir se desejar com endpoints reais configuráveis."
+}
